@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yerly Bijouterie Optique — Martigny, Valais</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #c9a96e;
+  --gold-light: #e8d4a8;
+  --dark: #0e0e0e;
+  --dark-2: #1a1a1a;
+  --cream: #faf7f2;
+  --cream-2: #f2ede4;
+  --text: #1a1a1a;
+  --mid: #6b6560;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(14,14,14,0.97); backdrop-filter: blur(8px);
+  padding: 0 7%; height: 72px; display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo img { height: 36px; filter: brightness(0) invert(1); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.78rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--gold); }
+.nav-contact { color: var(--gold) !important; border: 1px solid var(--gold); padding: 7px 20px; }
+.nav-contact:hover { background: var(--gold); color: var(--dark) !important; }
+
+/* HERO */
+.hero {
+  min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+  padding-top: 72px;
+}
+.hero-image {
+  background: url('https://images.unsplash.com/photo-1585960622850-ed33c41d6418?w=1200&auto=format&fit=crop&q=90') center/cover no-repeat;
+  min-height: calc(100vh - 72px);
+}
+.hero-content {
+  background: var(--dark); display: flex; flex-direction: column;
+  justify-content: center; padding: 80px 7% 80px 10%;
+}
+.hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; }
+.hero-content h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 5.5vw, 6rem); font-weight: 300; color: #fff; line-height: 1.05; margin-bottom: 28px; }
+.hero-content h1 em { font-style: italic; color: var(--gold); }
+.hero-tagline { color: rgba(255,255,255,0.55); font-size: 0.88rem; line-height: 1.95; letter-spacing: 0.02em; margin-bottom: 52px; max-width: 360px; }
+.hero-divider { width: 40px; height: 1px; background: var(--gold); margin-bottom: 32px; }
+.hero-cta { display: inline-block; border: 1px solid var(--gold); color: var(--gold); padding: 14px 36px; text-decoration: none; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; transition: all 0.3s; }
+.hero-cta:hover { background: var(--gold); color: var(--dark); }
+.hero-info { display: flex; gap: 40px; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.08); }
+.hero-info-item p { color: rgba(255,255,255,0.3); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 6px; }
+.hero-info-item span { color: rgba(255,255,255,0.75); font-size: 0.88rem; }
+
+/* UNIVERS */
+.univers { display: grid; grid-template-columns: repeat(3, 1fr); }
+.univers-card { position: relative; overflow: hidden; cursor: pointer; }
+.univers-card-img { height: 520px; background-size: cover; background-position: center; transition: transform 0.7s ease; }
+.univers-card:hover .univers-card-img { transform: scale(1.04); }
+.univers-card-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(14,14,14,0.92) 0%, rgba(14,14,14,0.2) 50%, transparent 100%);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 40px 36px;
+}
+.univers-number { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: rgba(201,169,110,0.25); line-height: 1; margin-bottom: 8px; }
+.univers-title { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: #fff; line-height: 1.1; margin-bottom: 10px; }
+.univers-sub { font-size: 0.75rem; color: rgba(255,255,255,0.5); letter-spacing: 0.12em; text-transform: uppercase; }
+.univers-line { width: 30px; height: 1px; background: var(--gold); margin-bottom: 14px; }
+
+/* SECTION COMMONS */
+.section { padding: 100px 7%; }
+.section-label { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 16px; }
+.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 4vw, 3.8rem); font-weight: 300; color: var(--text); line-height: 1.1; margin-bottom: 20px; }
+.section-title em { font-style: italic; }
+.section-text { color: var(--mid); font-size: 0.9rem; line-height: 1.9; }
+
+/* BIJOUTERIE */
+.bijouterie { background: var(--dark); }
+.bijouterie-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+.bij-image-wrap { position: relative; }
+.bij-img-main { width: 100%; height: 560px; object-fit: cover; background: url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&auto=format&fit=crop&q=90') center/cover; }
+.bij-img-float {
+  position: absolute; bottom: -30px; right: -30px; width: 200px; height: 200px;
+  background: url('https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400&auto=format&fit=crop&q=90') center/cover;
+  border: 4px solid var(--dark);
+}
+.bij-text .section-title { color: #fff; }
+.bij-text .section-text { color: rgba(255,255,255,0.55); margin-bottom: 40px; }
+.marques-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
+.marque-tag { border: 1px solid rgba(201,169,110,0.3); color: rgba(255,255,255,0.6); padding: 6px 16px; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.marque-tag.gold { border-color: var(--gold); color: var(--gold); }
+.bij-feature { margin-top: 36px; padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.08); }
+.bij-feature p { color: rgba(255,255,255,0.4); font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 10px; }
+.bij-feature span { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; color: rgba(255,255,255,0.8); }
+
+/* HORLOGERIE */
+.horlogerie-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+.horl-images { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+.horl-img-1 { height: 340px; background: url('https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?w=600&auto=format&fit=crop&q=90') center/cover; grid-column: 1 / -1; }
+.horl-img-2 { height: 220px; background: url('https://images.unsplash.com/photo-1618215650148-e8e61eae521c?w=400&auto=format&fit=crop&q=90') center/cover; }
+.horl-img-3 { height: 220px; background: url('https://images.unsplash.com/photo-1598560917807-1bae44bd2be8?w=400&auto=format&fit=crop&q=90') center/cover; }
+.horl-text .section-text { margin-bottom: 40px; }
+.brands-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.brands-list li { padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.07); font-size: 0.85rem; font-weight: 400; color: var(--text); display: flex; align-items: center; gap: 10px; }
+.brands-list li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+/* OPTIQUE */
+.optique { background: var(--cream-2); }
+.optique-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+.optique-img { height: 540px; background: url('https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=800&auto=format&fit=crop&q=90') center/cover; }
+.optique-services { display: flex; flex-direction: column; gap: 0; margin-top: 36px; }
+.opt-service { padding: 22px 0; border-bottom: 1px solid rgba(0,0,0,0.08); display: flex; gap: 20px; align-items: flex-start; }
+.opt-icon { color: var(--gold); font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+.opt-service h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+.opt-service p { color: var(--mid); font-size: 0.83rem; line-height: 1.7; }
+
+/* SUR MESURE */
+.surmesure { background: var(--dark); padding: 100px 7%; text-align: center; }
+.surmesure-inner { max-width: 680px; margin: 0 auto; }
+.surmesure .section-title { color: #fff; margin-bottom: 20px; }
+.surmesure .section-text { color: rgba(255,255,255,0.5); margin-bottom: 44px; }
+.surmesure-cta { display: inline-block; background: var(--gold); color: var(--dark); padding: 16px 44px; text-decoration: none; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; transition: all 0.3s; }
+.surmesure-cta:hover { background: var(--gold-light); }
+
+/* CONTACT */
+.contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
+.contact-text .section-title { margin-bottom: 30px; }
+.contact-details { display: flex; flex-direction: column; gap: 28px; }
+.c-item { display: flex; gap: 18px; }
+.c-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 7px; }
+.c-label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.c-val { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: var(--text); line-height: 1.4; }
+.contact-map {
+  height: 400px;
+  background: url('https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?w=800&auto=format&fit=crop&q=85') center/cover;
+  position: relative;
+}
+.map-overlay { position: absolute; inset: 0; background: rgba(14,14,14,0.3); display: flex; align-items: center; justify-content: center; }
+.map-pin { background: var(--dark); color: #fff; padding: 16px 24px; text-align: center; }
+.map-pin strong { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; display: block; }
+.map-pin span { font-size: 0.75rem; color: var(--gold); letter-spacing: 0.1em; }
+.tel-cta { display: block; margin-top: 40px; background: var(--dark); color: #fff; padding: 16px 28px; text-align: center; text-decoration: none; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; transition: background 0.2s; }
+.tel-cta:hover { background: var(--dark-2); }
+.tel-cta span { color: var(--gold); display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; letter-spacing: 0.05em; text-transform: none; margin-top: 4px; }
+
+/* FOOTER */
+footer { background: var(--dark); padding: 56px 7%; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 40px; border-top: 1px solid rgba(201,169,110,0.2); }
+.footer-logo img { height: 32px; filter: brightness(0) invert(1); }
+.footer-center { text-align: center; }
+.footer-center p { color: rgba(255,255,255,0.25); font-size: 0.75rem; letter-spacing: 0.12em; }
+.footer-right { text-align: right; color: rgba(255,255,255,0.35); font-size: 0.78rem; line-height: 1.8; }
+
+/* ANIMATIONS */
+.fade-in { opacity: 0; transform: translateY(28px); transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.fade-in.visible { opacity: 1; transform: none; }
+.fade-left { opacity: 0; transform: translateX(-28px); transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.fade-left.visible { opacity: 1; transform: none; }
+.fade-right { opacity: 0; transform: translateX(28px); transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.fade-right.visible { opacity: 1; transform: none; }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-image { min-height: 50vh; }
+  .hero-content { padding: 60px 6%; }
+  .univers { grid-template-columns: 1fr; }
+  .univers-card-img { height: 320px; }
+  .bijouterie-inner, .horlogerie-inner, .optique-inner, .contact-inner { grid-template-columns: 1fr; gap: 50px; }
+  .bij-img-float { display: none; }
+  footer { grid-template-columns: 1fr; text-align: center; }
+  .footer-right { text-align: center; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="https://yerlysach.wordpress.com/wp-content/uploads/2024/12/cropped-cropped-yerly-white.png" alt="Yerly">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#bijouterie">Bijouterie</a></li>
+    <li><a href="#horlogerie">Horlogerie</a></li>
+    <li><a href="#optique">Optique</a></li>
+    <li><a href="#contact" class="nav-contact">Nous trouver</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- IMAGE: hero-portrait bijoux -->
+  <div class="hero-image fade-left"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Martigny · Valais · Depuis des décennies</span>
+    <div class="hero-divider"></div>
+    <h1>Bijouterie<br>Optique<br><em>Yerly</em></h1>
+    <p class="hero-tagline">Savoir-faire, qualité et proximité. Notre équipe qualifiée vous accompagne dans le choix de vos bijoux, montres et lunettes avec passion et expertise.</p>
+    <a href="#univers" class="hero-cta">Découvrir nos collections</a>
+    <div class="hero-info">
+      <div class="hero-info-item">
+        <p>Adresse</p>
+        <span>Av. de la Gare 40<br>1920 Martigny</span>
+      </div>
+      <div class="hero-info-item">
+        <p>Téléphone</p>
+        <span>027 722 30 70</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 UNIVERS -->
+<div class="univers" id="univers">
+  <!-- IMAGE: bijoux portés -->
+  <div class="univers-card">
+    <div class="univers-card-img" style="background-image: url('https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=800&auto=format&fit=crop&q=85');"></div>
+    <div class="univers-card-overlay">
+      <span class="univers-number">01</span>
+      <div class="univers-line"></div>
+      <h2 class="univers-title">Bijouterie</h2>
+      <span class="univers-sub">Alliances · Colliers · Créations</span>
+    </div>
+  </div>
+  <!-- IMAGE: montre de luxe -->
+  <div class="univers-card">
+    <div class="univers-card-img" style="background-image: url('https://images.unsplash.com/photo-1618215650148-e8e61eae521c?w=800&auto=format&fit=crop&q=85');"></div>
+    <div class="univers-card-overlay">
+      <span class="univers-number">02</span>
+      <div class="univers-line"></div>
+      <h2 class="univers-title">Horlogerie</h2>
+      <span class="univers-sub">Tissot · Maurice Lacroix · Mondaine</span>
+    </div>
+  </div>
+  <!-- IMAGE: lunettes -->
+  <div class="univers-card">
+    <div class="univers-card-img" style="background-image: url('https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=800&auto=format&fit=crop&q=85');"></div>
+    <div class="univers-card-overlay">
+      <span class="univers-number">03</span>
+      <div class="univers-line"></div>
+      <h2 class="univers-title">Optique</h2>
+      <span class="univers-sub">Montures · Verres · Conseil</span>
+    </div>
+  </div>
+</div>
+
+<!-- BIJOUTERIE -->
+<section class="section bijouterie" id="bijouterie">
+  <div class="bijouterie-inner">
+    <div class="bij-image-wrap fade-left">
+      <!-- IMAGE: alliance diamant -->
+      <div class="bij-img-main"></div>
+      <!-- IMAGE: collection bijoux -->
+      <div class="bij-img-float"></div>
+    </div>
+    <div class="bij-text fade-right">
+      <span class="section-label">Notre univers</span>
+      <h2 class="section-title">Bijouterie<br><em>& créations</em></h2>
+      <p class="section-text">De l'alliance intemporelle au bijou de fantaisie, en passant par les colliers de perles créés sur mesure, nous proposons une sélection rigoureuse de pièces qui reflètent votre personnalité et vos moments de vie.</p>
+      <div class="bij-feature">
+        <p>Notre spécialité</p>
+        <span>Colliers de perles sur mesure</span>
+      </div>
+      <div class="marques-grid" style="margin-top: 32px;">
+        <span class="section-label" style="width: 100%; margin-bottom: 6px;">Marques sélectionnées</span>
+        <span class="marque-tag gold">Corini</span>
+        <span class="marque-tag gold">Meister</span>
+        <span class="marque-tag gold">Gloria Star</span>
+        <span class="marque-tag">Schwarz</span>
+        <span class="marque-tag">Blush</span>
+        <span class="marque-tag">Pfalzer</span>
+        <span class="marque-tag">Passior</span>
+        <span class="marque-tag">Naiomy</span>
+        <span class="marque-tag">Lotus</span>
+        <span class="marque-tag">Morellato</span>
+        <span class="marque-tag">Esprit</span>
+        <span class="marque-tag">Guess</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HORLOGERIE -->
+<section class="section" id="horlogerie" style="background: var(--cream);">
+  <div class="horlogerie-inner">
+    <div class="horl-text fade-left">
+      <span class="section-label">Montres</span>
+      <h2 class="section-title">Horlogerie<br><em>suisse & internationale</em></h2>
+      <p class="section-text">Une sélection de montres alliant design, qualité et technicité. Classiques, contemporaines ou sportives, nos timepieces sont proposées avec un conseil expert pour vous guider vers la pièce qui vous correspond.</p>
+      <ul class="brands-list" style="margin-top: 36px;">
+        <li>Tissot</li>
+        <li>Maurice Lacroix</li>
+        <li>Revue Thommen</li>
+        <li>Mondaine</li>
+        <li>Grovana</li>
+        <li>Festina</li>
+        <li>Swiss Alpine Military</li>
+        <li>Diesel</li>
+        <li>Guess</li>
+        <li>Police</li>
+      </ul>
+    </div>
+    <div class="horl-images fade-right">
+      <!-- IMAGE: montre luxe plan serré -->
+      <div class="horl-img-1"></div>
+      <!-- IMAGE: montre portée -->
+      <div class="horl-img-2"></div>
+      <!-- IMAGE: alliance or -->
+      <div class="horl-img-3"></div>
+    </div>
+  </div>
+</section>
+
+<!-- OPTIQUE -->
+<section class="section optique" id="optique">
+  <div class="optique-inner">
+    <!-- IMAGE: lunettes élégantes -->
+    <div class="optique-img fade-left"></div>
+    <div class="fade-right">
+      <span class="section-label">Vision & Style</span>
+      <h2 class="section-title">Optique<br><em>& lunetterie</em></h2>
+      <p class="section-text">De la sélection des montures à l'adaptation des verres, notre équipe vous accompagne avec expertise pour optimiser votre confort visuel sans compromis sur l'élégance.</p>
+      <div class="optique-services">
+        <div class="opt-service">
+          <span class="opt-icon">◈</span>
+          <div>
+            <h4>Montures & Créateurs</h4>
+            <p>Large choix de montures dans des styles modernes, classiques et audacieux — des marques sélectionnées pour leur qualité et leur design.</p>
+          </div>
+        </div>
+        <div class="opt-service">
+          <span class="opt-icon">◈</span>
+          <div>
+            <h4>Lunettes de soleil</h4>
+            <p>Protection UV maximale dans des modèles alliant performance technique et élégance. Pour chaque visage, un style qui vous ressemble.</p>
+          </div>
+        </div>
+        <div class="opt-service">
+          <span class="opt-icon">◈</span>
+          <div>
+            <h4>Verres haute performance</h4>
+            <p>Verres progressifs, photochromiques, antireflets — une technologie au service de votre clarté visuelle et de votre confort quotidien.</p>
+          </div>
+        </div>
+        <div class="opt-service">
+          <span class="opt-icon">◈</span>
+          <div>
+            <h4>Conseil personnalisé</h4>
+            <p>Chaque client est unique. Notre équipe qualifiée prend le temps d'analyser vos besoins pour vous proposer la solution idéale.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUR MESURE -->
+<section class="surmesure">
+  <div class="surmesure-inner fade-in">
+    <span class="section-label">Service exclusif</span>
+    <h2 class="section-title">Créations <em>sur mesure</em></h2>
+    <p class="section-text">Vous avez un projet unique ? Collier de perles personnalisé, alliance gravée, monture adaptée à votre morphologie — nous donnons vie à vos idées avec le soin et la précision qu'elles méritent.</p>
+    <a href="#contact" class="surmesure-cta">Prendre contact</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact" style="background: var(--cream);">
+  <div class="contact-inner">
+    <div class="fade-left">
+      <span class="section-label">Nous trouver</span>
+      <h2 class="section-title">Venez nous<br><em>rendre visite</em></h2>
+      <div class="contact-details">
+        <div class="c-item">
+          <div class="c-dot"></div>
+          <div>
+            <p class="c-label">Adresse</p>
+            <span class="c-val">Avenue de la Gare 40<br>1920 Martigny, Valais</span>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-dot"></div>
+          <div>
+            <p class="c-label">Téléphone</p>
+            <span class="c-val">027 722 30 70</span>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-dot"></div>
+          <div>
+            <p class="c-label">Email</p>
+            <span class="c-val" style="font-size: 1rem;">bernard.yerly@gmail.com</span>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-dot"></div>
+          <div>
+            <p class="c-label">Horaires</p>
+            <span class="c-val" style="font-size: 1rem; color: var(--mid);">Nous contacter pour les horaires</span>
+          </div>
+        </div>
+      </div>
+      <a href="tel:+41277223070" class="tel-cta">
+        Appeler la boutique
+        <span>027 722 30 70</span>
+      </a>
+    </div>
+    <div class="fade-right">
+      <!-- IMAGE: ambiance boutique -->
+      <div class="contact-map">
+        <div class="map-overlay">
+          <div class="map-pin">
+            <strong>Yerly Bijouterie Optique</strong>
+            <span>Avenue de la Gare 40 · Martigny</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="https://yerlysach.wordpress.com/wp-content/uploads/2024/12/cropped-cropped-yerly-white.png" alt="Yerly">
+  </div>
+  <div class="footer-center">
+    <p>© 2026 Yerly Bijouterie Optique S.A.</p>
+    <p style="margin-top: 6px; color: rgba(255,255,255,0.15);">Savoir-faire · Qualité · Proximité</p>
+  </div>
+  <div class="footer-right">
+    Avenue de la Gare 40<br>
+    1920 Martigny, Valais<br>
+    <span style="color: var(--gold);">027 722 30 70</span>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in, .fade-left, .fade-right').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
