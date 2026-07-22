@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalogue — Yerly Bijouterie Optique · Martigny</title>
+<meta name="description" content="Découvrez le catalogue de la Bijouterie Optique Yerly à Martigny : bijoux, montres et optique. Achat en boutique.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #c9a96e;
+  --gold-light: #e8d4a8;
+  --dark: #0e0e0e;
+  --dark-2: #1a1a1a;
+  --cream: #faf7f2;
+  --cream-2: #f2ede4;
+  --text: #1a1a1a;
+  --mid: #6b6560;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(14,14,14,0.97); backdrop-filter: blur(8px);
+  padding: 0 7%; height: 72px; display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo img { height: 46px; }
+.nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+.nav-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.78rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+.nav-contact { color: var(--gold) !important; border: 1px solid var(--gold); padding: 7px 20px; }
+.nav-contact:hover { background: var(--gold); color: var(--dark) !important; }
+
+/* HEADER */
+.cat-header {
+  padding: 150px 7% 60px; background: var(--dark); text-align: center;
+}
+.cat-eyebrow { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; }
+.cat-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.6rem); font-weight: 300; color: #fff; line-height: 1.05; margin-bottom: 20px; }
+.cat-header h1 em { font-style: italic; color: var(--gold); }
+.cat-header p { color: rgba(255,255,255,0.5); font-size: 0.92rem; line-height: 1.9; max-width: 540px; margin: 0 auto; }
+
+/* BANNIÈRE INFO ACHAT EN BOUTIQUE */
+.cat-notice {
+  background: var(--gold); color: var(--dark);
+  padding: 16px 7%; text-align: center; font-size: 0.82rem; letter-spacing: 0.04em;
+  display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
+}
+.cat-notice svg { width: 20px; height: 20px; flex-shrink: 0; }
+.cat-notice strong { font-weight: 600; }
+
+/* FILTRES */
+.cat-filters {
+  display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;
+  padding: 48px 7% 0;
+}
+.filter-btn {
+  background: transparent; border: 1px solid rgba(0,0,0,0.15); color: var(--text);
+  padding: 10px 26px; font-family: 'Inter', sans-serif; font-size: 0.74rem; letter-spacing: 0.14em;
+  text-transform: uppercase; cursor: pointer; transition: all 0.25s; border-radius: 2px;
+}
+.filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+.filter-btn.active { background: var(--dark); border-color: var(--dark); color: #fff; }
+
+/* GRILLE PRODUITS */
+.cat-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 34px 28px; padding: 48px 7% 100px; max-width: 1400px; margin: 0 auto;
+}
+.card {
+  background: #fff; border: 1px solid rgba(0,0,0,0.06); overflow: hidden;
+  display: flex; flex-direction: column; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s;
+}
+.card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(14,14,14,0.12); }
+.card-img { width: 100%; aspect-ratio: 4/5; background-size: cover; background-position: center; background-color: var(--cream-2); }
+.card-body { padding: 22px 22px 24px; display: flex; flex-direction: column; flex: 1; }
+.card-cat { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.card-brand { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); margin-bottom: 4px; }
+.card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 500; line-height: 1.15; margin-bottom: 10px; }
+.card-desc { font-size: 0.83rem; line-height: 1.7; color: var(--mid); margin-bottom: 18px; flex: 1; }
+.card-foot { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid rgba(0,0,0,0.07); }
+.card-price { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--text); }
+.card-price.enquire { font-size: 0.9rem; font-style: italic; color: var(--mid); }
+.card-store { font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.card-store:hover { border-color: var(--gold); }
+.cat-empty { grid-column: 1 / -1; text-align: center; padding: 60px 0; color: var(--mid); font-style: italic; }
+
+/* CTA CONTACT */
+.cat-cta { background: var(--dark); padding: 90px 7%; text-align: center; }
+.cat-cta-inner { max-width: 640px; margin: 0 auto; }
+.cat-cta .label { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 16px; }
+.cat-cta h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: #fff; margin-bottom: 18px; }
+.cat-cta h2 em { font-style: italic; color: var(--gold); }
+.cat-cta p { color: rgba(255,255,255,0.5); font-size: 0.9rem; line-height: 1.9; margin-bottom: 36px; }
+.cat-cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn-gold { background: var(--gold); color: var(--dark); padding: 15px 38px; text-decoration: none; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; transition: background 0.3s; }
+.btn-gold:hover { background: var(--gold-light); }
+.btn-outline { border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 15px 38px; text-decoration: none; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; transition: all 0.3s; }
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+/* FOOTER */
+footer { background: var(--dark); padding: 56px 7%; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 40px; border-top: 1px solid rgba(201,169,110,0.2); }
+.footer-logo img { height: 44px; }
+.footer-center { text-align: center; }
+.footer-center p { color: rgba(255,255,255,0.25); font-size: 0.75rem; letter-spacing: 0.12em; }
+.footer-right { text-align: right; color: rgba(255,255,255,0.35); font-size: 0.78rem; line-height: 1.8; }
+.footer-right span { color: var(--gold); }
+
+/* ANIMATIONS */
+.fade-in { opacity: 0; transform: translateY(24px); transition: 0.7s cubic-bezier(0.16,1,0.3,1); }
+.fade-in.visible { opacity: 1; transform: none; }
+
+/* DÉMO */
+.demo-mention { position: fixed; bottom: 12px; left: 12px; z-index: 200; background: rgba(14,14,14,0.7); color: rgba(255,255,255,0.7); font-size: 0.6rem; letter-spacing: 0.1em; padding: 5px 10px; border-radius: 3px; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .cat-header { padding: 120px 6% 48px; }
+  .cat-grid { padding: 40px 6% 80px; gap: 26px 20px; }
+  footer { grid-template-columns: 1fr; text-align: center; }
+  .footer-right { text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade-in, .card { transition: none; }
+  * { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="img/logo-yerly-blanc.png" alt="Yerly Bijouterie Optique">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#bijouterie">Bijouterie</a></li>
+    <li><a href="index.html#horlogerie">Horlogerie</a></li>
+    <li><a href="index.html#optique">Optique</a></li>
+    <li><a href="catalogue.html" class="active">Catalogue</a></li>
+    <li><a href="index.html#contact" class="nav-contact">Nous trouver</a></li>
+  </ul>
+</nav>
+
+<!-- HEADER -->
+<header class="cat-header">
+  <p class="cat-eyebrow">Bijouterie · Horlogerie · Optique</p>
+  <h1>Notre <em>catalogue</em></h1>
+  <p>Une sélection de nos bijoux, montres et lunettes. Découvrez nos pièces en ligne, puis venez les essayer et les acquérir directement en boutique, à Martigny.</p>
+</header>
+
+<!-- BANNIÈRE ACHAT EN BOUTIQUE -->
+<div class="cat-notice">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l1-5h16l1 5M4 9v11h16V9M4 9h16M9 13h6"/></svg>
+  <span><strong>Vente uniquement en boutique.</strong> Ce catalogue est présentiel : réservez par téléphone ou passez nous voir pour tout achat.</span>
+</div>
+
+<!-- FILTRES -->
+<div class="cat-filters" id="filters">
+  <button class="filter-btn active" data-cat="tout">Tout</button>
+  <button class="filter-btn" data-cat="Bijoux">Bijoux</button>
+  <button class="filter-btn" data-cat="Montres">Montres</button>
+  <button class="filter-btn" data-cat="Optique">Optique</button>
+</div>
+
+<!-- GRILLE PRODUITS (générée depuis la liste ci-dessous) -->
+<div class="cat-grid" id="grid"></div>
+
+<!-- CTA -->
+<section class="cat-cta">
+  <div class="cat-cta-inner fade-in">
+    <span class="label">Un coup de cœur ?</span>
+    <h2>Venez le découvrir <em>en boutique</em></h2>
+    <p>Notre équipe vous accueille pour vous présenter nos pièces, vous conseiller et répondre à toutes vos questions. Le meilleur moyen de choisir, c'est de venir voir et essayer.</p>
+    <div class="cat-cta-actions">
+      <a href="tel:+41277223070" class="btn-gold">Appeler la boutique</a>
+      <a href="index.html#contact" class="btn-outline">Nous trouver</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="footer-logo">
+    <img src="img/logo-yerly-blanc.png" alt="Yerly Bijouterie Optique">
+  </a>
+  <div class="footer-center">
+    <p>© 2026 Yerly Bijouterie Optique S.A.</p>
+    <p style="margin-top: 6px; color: rgba(255,255,255,0.15);">Savoir-faire · Qualité · Proximité</p>
+  </div>
+  <div class="footer-right">
+    Avenue de la Gare 40<br>
+    1920 Martigny, Valais<br>
+    <span>027 722 30 70</span>
+  </div>
+</footer>
+
+<div class="demo-mention">Site de démonstration réalisé par Horizon IA</div>
+
+<script>
+/* =========================================================================
+   CATALOGUE — LISTE DES ARTICLES
+   -------------------------------------------------------------------------
+   Pour AJOUTER un article : copie un bloc { ... } ci-dessous et remplis-le.
+   Pour SUPPRIMER un article : efface son bloc.
+   Champs :
+     categorie : "Bijoux" | "Montres" | "Optique"   (obligatoire, pour le filtre)
+     marque    : nom de la marque (ou "" si aucune)
+     nom       : nom de l'article
+     desc      : courte description (1 phrase)
+     prix      : ex "890 CHF"  — laisse "" pour afficher « Prix en boutique »
+     image     : "img/catalogue/mon-photo.jpg"  (mets la photo dans le dossier img/catalogue/)
+   NB : les articles ci-dessous sont des EXEMPLES à remplacer par les vraies pièces.
+   ========================================================================= */
+const PRODUITS = [
+  { categorie:"Montres", marque:"Festina", nom:"Montre automatique squelette", desc:"Cadran ajouré, bracelet cuir, mouvement automatique.", prix:"", image:"img/montre-festina.jpg" },
+  { categorie:"Montres", marque:"Tissot", nom:"Montre classique acier", desc:"Élégance intemporelle, idéale au quotidien comme en soirée.", prix:"", image:"img/montre-elegante.jpg" },
+  { categorie:"Bijoux", marque:"", nom:"Collier pendentif or", desc:"Chaîne fine et pendentif serti, un bijou délicat à porter au quotidien.", prix:"", image:"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=700&auto=format&fit=crop&q=85" },
+  { categorie:"Bijoux", marque:"", nom:"Parure fine", desc:"Colliers superposés et bagues assorties, une ligne moderne et épurée.", prix:"", image:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=700&auto=format&fit=crop&q=85" },
+  { categorie:"Bijoux", marque:"", nom:"Alliances or", desc:"Alliances d'exception, disponibles en plusieurs finitions.", prix:"", image:"https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=700&auto=format&fit=crop&q=85" },
+  { categorie:"Optique", marque:"", nom:"Monture optique élégante", desc:"Large choix de montures modernes, classiques et audacieuses.", prix:"", image:"https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=700&auto=format&fit=crop&q=85" },
+  { categorie:"Optique", marque:"", nom:"Lunettes de soleil", desc:"Protection UV maximale, style et confort au rendez-vous.", prix:"", image:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=700&auto=format&fit=crop&q=85" }
+];
+
+/* --- Rendu (ne pas modifier) --- */
+const grid = document.getElementById('grid');
+function render(cat) {
+  const list = cat === 'tout' ? PRODUITS : PRODUITS.filter(p => p.categorie === cat);
+  if (!list.length) { grid.innerHTML = '<p class="cat-empty">Aucun article dans cette catégorie pour le moment.</p>'; return; }
+  grid.innerHTML = list.map(p => {
+    const prix = p.prix && p.prix.trim()
+      ? `<span class="card-price">${p.prix}</span>`
+      : `<span class="card-price enquire">Prix en boutique</span>`;
+    const marque = p.marque && p.marque.trim() ? `<p class="card-brand">${p.marque}</p>` : '';
+    return `<article class="card">
+      <div class="card-img" style="background-image:url('${p.image}')"></div>
+      <div class="card-body">
+        <span class="card-cat">${p.categorie}</span>
+        ${marque}
+        <h3>${p.nom}</h3>
+        <p class="card-desc">${p.desc || ''}</p>
+        <div class="card-foot">
+          ${prix}
+          <a href="tel:+41277223070" class="card-store">Voir en boutique</a>
+        </div>
+      </div>
+    </article>`;
+  }).join('');
+}
+render('tout');
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    render(btn.dataset.cat);
+  });
+});
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
